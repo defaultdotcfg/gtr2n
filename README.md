@@ -86,10 +86,10 @@ verbose = 0
 
 ## Roadmap
 
-- [ ] Launcher que detecta o APK e os OBBs, valida a versão (nome e SHA-256 do `libGT2.so`) e monta sozinho a pasta do jogo.
-- [ ] Caminhos relativos no `config.ini`, para a pasta poder ser movida.
-- [ ] Remapeamento real de teclas e botões (hoje os atalhos são fixos no runtime).
-- [ ] Perfis com saves separados.
+- [ ] Correção de bugs.
+- [ ] Ajuste na economia e progressão do jogo.
+- [ ] Remoção total de carros pagos com dinheiro real, cash ou eventos limitados. Tudo será desbloqueado com uma única moeda.
+- [ ] Remoção total de pop ups intrusivos, ads, pacotes de carros pagos e tempos de espera para aplicar melhorias nos carros.
 
 ## Problemas conhecidos
 
