@@ -4,8 +4,6 @@ Port nativo para **Windows x64** de *GT Racing 2: The Real Car Experience* (Andr
 
 > **Aviso:** este é um projeto de preservação e estudo, sem fins lucrativos e sem afiliação com a Gameloft. Este repositório e os releases **não contêm** nenhum arquivo do jogo (APK, `libGT2.so`, OBBs ou assets). Você precisa fornecer os seus próprios arquivos, obtidos de uma cópia que você possui legitimamente.
 
-Página do projeto: ative o GitHub Pages em *Settings → Pages* (branch `main`, pasta `/docs`).
-
 ---
 
 ## Como funciona
