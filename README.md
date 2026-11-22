@@ -1,4 +1,4 @@
-# GT Racing 2 — Native PC Edition
+# GTR2N — GT Racing 2 PC
 
 Port nativo para **Windows x64** de *GT Racing 2: The Real Car Experience* (Android, versão **1.6.1c**), com launcher próprio, melhorias gráficas e suporte a teclado e gamepad.
 
