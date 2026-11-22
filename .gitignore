@@ -1,0 +1,27 @@
+# Arquivos do jogo (Gameloft) - nunca versionar
+*.apk
+*.obb
+*.so
+apk/
+com.gameloft.android.ANMP.GloftRAHM/
+gt2_files/
+gt2_cache/
+gt2_save_backups/
+outputs/obb_extracted/
+
+# Artefatos de build e teste
+*.pdb
+*.ppm
+*.log
+*.dmp
+crashdumps/
+build*/
+Release/
+__pycache__/
+.work/
+
+# Config local (contém caminhos do usuário)
+config.ini
+
+# Zip de release (publicar pela aba Releases, não no repositório)
+*.zip

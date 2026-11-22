@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GT Racing 2 — Native PC Edition</title>
+<meta name="description" content="Port nativo para Windows x64 de GT Racing 2 (Android 1.6.1c), com launcher, melhorias gráficas e suporte a teclado e gamepad.">
+<style>
+  :root {
+    --bg: #121214;
+    --card: #1a1a1e;
+    --border: #2a2a32;
+    --text: #f4f4f5;
+    --sub: #a1a1aa;
+    --accent: #dc2626;
+    --accent-hover: #ef4444;
+    --green: #16a34a;
+    --green-hover: #22c55e;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  }
+  a { color: var(--accent-hover); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+  header.hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--border);
+    background: radial-gradient(ellipse at 50% 0%, rgba(220,38,38,.22), transparent 60%);
+  }
+  .hero h1 { margin: 0; font-size: clamp(2rem, 6vw, 3.4rem); letter-spacing: .02em; line-height: 1.1; }
+  .hero h1 span { color: var(--accent); }
+  .hero p { color: var(--sub); max-width: 640px; font-size: 1.1rem; margin: 16px 0 28px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 12px 22px; border-radius: 6px;
+    font-weight: 700; text-decoration: none; color: #fff;
+    background: var(--green); transition: background .15s;
+  }
+  .btn:hover { background: var(--green-hover); }
+  .btn.alt { background: #27272a; }
+  .btn.alt:hover { background: #3f3f46; }
+
+  section { padding: 48px 0; }
+  h2 { margin: 0 0 20px; font-size: 1.5rem; }
+  h2::before { content: ""; display: inline-block; width: 6px; height: 1em; background: var(--accent); margin-right: 10px; vertical-align: -2px; border-radius: 2px; }
+
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+  .card h3 { margin: 0 0 4px; font-size: 1rem; }
+  .card p { margin: 0; color: var(--sub); font-size: .92rem; }
+
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: .95rem; }
+  th { color: var(--accent-hover); font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; }
+  tr:last-child td { border-bottom: 0; }
+  .tbl { overflow-x: auto; }
+  code, kbd { background: #24242c; border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; font-family: Consolas, monospace; font-size: .88em; }
+
+  ol.steps { padding-left: 20px; }
+  ol.steps li { margin-bottom: 8px; }
+
+  .notice {
+    border: 1px solid #7f1d1d; background: #2a1212; color: #fecaca;
+    border-radius: 8px; padding: 14px 18px; font-size: .95rem;
+  }
+  ul.road { list-style: none; padding: 0; margin: 0; }
+  ul.road li { padding: 6px 0 6px 26px; position: relative; color: var(--sub); }
+  ul.road li::before { content: "○"; position: absolute; left: 0; color: var(--accent-hover); }
+
+  footer { border-top: 1px solid var(--border); padding: 28px 0 40px; color: var(--sub); font-size: .88rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1><span>GT RACING 2</span><br>Native PC Edition</h1>
+    <p>Port nativo para Windows x64 do GT Racing 2 (Android 1.6.1c), com launcher próprio, melhorias gráficas e suporte a teclado e gamepad.</p>
+    <div class="btns">
+      <!-- Ajuste USUARIO/REPOSITORIO depois de criar o repositório -->
+      <a class="btn" href="../../releases/latest">⬇ Baixar release</a>
+      <a class="btn alt" href="../">Ver no GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <div class="notice">
+      <strong>Aviso:</strong> projeto de preservação e estudo, sem fins lucrativos e sem afiliação com a Gameloft.
+      Nenhum arquivo do jogo (APK, <code>libGT2.so</code>, OBBs ou assets) é distribuído aqui.
+      Você precisa fornecer os seus próprios arquivos, de uma cópia que possui legitimamente.
+    </div>
+  </section>
+
+  <section>
+    <h2>Como funciona</h2>
+    <p>O projeto não recompila o jogo para x64. Um runtime nativo para Windows (base AndroidRecomp, Dynarmic, SDL2 e OpenGL) carrega o <code>libGT2.so</code> original (ARMv7), emula a CPU dele e implementa as partes de Android de que o jogo depende (JNI, OpenGL ES e OpenSL ES). Os OBBs originais são lidos diretamente.</p>
+    <p>Os patches são aplicados em memória, na execução. O arquivo original nunca é alterado em disco.</p>
+  </section>
+
+  <section>
+    <h2>Melhorias gráficas</h2>
+    <div class="grid">
+      <div class="card"><h3>FPS destravado</h3><p>Limite interno de 30 FPS removido. 60, 120, 144, 240 ou ilimitado.</p></div>
+      <div class="card"><h3>MSAA</h3><p>Anti-aliasing por hardware: 2x, 4x ou 8x.</p></div>
+      <div class="card"><h3>Anisotropia até 16x</h3><p>Asfalto e faixas nítidos até o horizonte.</p></div>
+      <div class="card"><h3>FOV ajustável</h3><p>Mais visão periférica, com opção para ultrawide 21:9.</p></div>
+      <div class="card"><h3>Perfil GPU_HIGH</h3><p>Shaders avançados e LOD máximo de carros e pistas.</p></div>
+      <div class="card"><h3>Reflexos 1024×1024</h3><p>Reflexos em tempo real em alta definição.</p></div>
+      <div class="card"><h3>Profundidade 24 bits</h3><p>Menos z-fighting e artefatos em GPUs de desktop.</p></div>
+      <div class="card"><h3>Resolução e tela cheia</h3><p>De 720p a 4K, nativa do monitor, e <kbd>F11</kbd> para alternar.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Controles</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Ação</th><th>Teclado</th><th>Gamepad</th></tr></thead>
+        <tbody>
+          <tr><td>Acelerar</td><td><kbd>W</kbd> / <kbd>↑</kbd></td><td>RT / R2</td></tr>
+          <tr><td>Frear / ré</td><td><kbd>S</kbd> / <kbd>↓</kbd></td><td>LT / L2</td></tr>
+          <tr><td>Direção</td><td><kbd>A</kbd> <kbd>D</kbd> / <kbd>←</kbd> <kbd>→</kbd></td><td>Analógico esquerdo ou direcional</td></tr>
+          <tr><td>Câmera</td><td><kbd>C</kbd></td><td>Y / Triângulo</td></tr>
+          <tr><td>Pausar</td><td><kbd>P</kbd> / <kbd>Tab</kbd> / <kbd>Esc</kbd></td><td>Start</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Requisitos e instalação</h2>
+    <ul>
+      <li>Windows 10 ou 11 (64 bits) e GPU com OpenGL 3.3 ou superior.</li>
+      <li>Arquivos da versão exata <strong>1.6.1c</strong>: o APK, <code>main.15927…obb</code> e <code>patch.16122…obb</code>.</li>
+    </ul>
+    <ol class="steps">
+      <li>Baixe o <code>.zip</code> na página de Releases e extraia em uma pasta.</li>
+      <li>Aponte o APK e os OBBs no launcher.</li>
+      <li>Ajuste as opções e clique em <strong>Iniciar</strong>.</li>
+    </ol>
+    <p>Outras versões do jogo não funcionam, porque os patches usam offsets fixos.</p>
+  </section>
+
+  <section>
+    <h2>Roadmap</h2>
+    <ul class="road">
+      <li>Launcher que detecta APK e OBBs, valida a versão e monta a pasta do jogo.</li>
+      <li>Caminhos relativos no <code>config.ini</code>.</li>
+      <li>Remapeamento real de teclas e botões.</li>
+      <li>Perfis com saves separados.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    GT Racing 2 é marca e propriedade da Gameloft. Créditos: AndroidRecomp, Dynarmic, SDL2, glad e stb, cada um sob a sua própria licença.
+  </div>
+</footer>
+
+</body>
+</html>
